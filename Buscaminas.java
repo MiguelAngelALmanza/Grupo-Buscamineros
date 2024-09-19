@@ -1,4 +1,4 @@
-public static void main(String []args){
+/*/public static void main(String []args){
     System.out.println("HOLA BUSCAMINAS");
     tablero(8);
 }
@@ -25,3 +25,4 @@ public static void tablero(int x){
 
 }
 
+//*/
