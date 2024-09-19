@@ -17,7 +17,7 @@
 1. Clona el repositorio en tu máquina local:
 
    ```bash
-   git clone https://github.com/tu-usuario/buscaminas.git
+   git clone https://github.com/MiguelAngelALmanza/Grupo-Buscamineros.git
 
 ## Parametros 
 
