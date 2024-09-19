@@ -12,10 +12,6 @@ public class Buscaminas {
         processData(args);
         tablero = new Tablero(tamanio);
         tablero.generarTablero();
-        System.out.println("Buscaminas");
-        System.out.println(dificultad);
-        System.out.println(tamanio);
-
     }
 
     public void processData(String [] args) {
@@ -26,5 +22,17 @@ public class Buscaminas {
                 case "d" : dificultad = ValidarEntrada.validarDificultad(parametros[1]);
             }
         }
+    }
+
+    public String getDificultad() {
+        return dificultad;
+    }
+
+    public int getTamanio() {
+        return tamanio;
+    }
+
+    public Tablero getTablero() {
+        return tablero;
     }
 }

@@ -25,4 +25,8 @@ public class Tablero {
             System.out.print("\n");
         }
     }
+
+    public int getTamanio() {
+        return tamanio;
+    }
 }
