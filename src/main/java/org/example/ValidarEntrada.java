@@ -12,17 +12,9 @@ public class ValidarEntrada {
         }
     }
 
-    public static int validarTamanio(String entrada) {
-        if (esEntero(entrada)) {
-            int tamanio = Integer.parseInt(entrada);
-            if (tamanio >= 0 && tamanio <= 10)
-                return tamanio;
-        }
-        return 0;
-    }
-
 
     public static String validarDificultad(String entrada) {
+        entrada = entrada.toLowerCase().replaceAll(" ", "");
         if (entrada.equals("facil")){
             return "facil";
         } else if (entrada.equals("medio")){
@@ -30,6 +22,6 @@ public class ValidarEntrada {
         } else if (entrada.equals("dificil")){
             return "dificil";
         }
-        return null;
+        return "";
     }
 }
