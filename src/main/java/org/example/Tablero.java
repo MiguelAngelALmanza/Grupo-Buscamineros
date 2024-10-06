@@ -62,13 +62,40 @@ public class Tablero {
     }
 
     public void revelarCasilla(int fila, int columna) {
+        int numminas=0;
         if (esMina(fila, columna)) {
             board[fila][columna] = "X";
-            this.estado = false;
+            //this.estado = false;
+            System.out.println("Mina pisoteada");
         } else {
-            board[fila][columna] = "R";
+            if (esMina(fila+1, columna)){
+                numminas++;
+            }
+            if (esMina(fila, columna+1)) {
+                numminas++;
+            }
+            if (esMina(fila+1, columna+1)) {
+                numminas++;
+            }
+            if (esMina(fila-1, columna)) {
+                numminas++;
+            }
+            if (esMina(fila, columna-1)) {
+                numminas++;
+            }
+            if (esMina(fila-1, columna-1)) {
+                numminas++;
+            }
+            if (esMina(fila-1, columna+1)) {
+                numminas++;
+            }
+            if (esMina(fila+1, columna-1)) {
+                numminas++;
+            }
+            board[fila][columna] = numminas+"";
         }
     }
+
 
     public int getTamanio() {
         return tamanio;

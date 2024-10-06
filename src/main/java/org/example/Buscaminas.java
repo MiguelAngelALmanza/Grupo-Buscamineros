@@ -43,8 +43,8 @@ public class Buscaminas {
     }
     public void setParametros() {
         if (dificultad.equals("facil")) {
-            this.tamanio = 8;
-            this.minas = 8;
+            this.tamanio = 5;
+            this.minas = 5;
         } else if (dificultad.equals("medio")){
             this.tamanio = 15;
             this.minas = 34;
