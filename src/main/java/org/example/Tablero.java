@@ -94,8 +94,19 @@ public class Tablero {
             }
             board[fila][columna] = numminas+"";
         }
+        //extenderCasillas();
     }
 
+    /*public void extenderCasillas() {
+        for(int i = 0; i < tamanio; i++) {
+            for (int j = 0; j < tamanio; j++) {
+                if(board[i][j].equals("0")){
+                    board[i][j] = "0";
+                }
+            }
+        }
+
+    } */
 
     public int getTamanio() {
         return tamanio;
