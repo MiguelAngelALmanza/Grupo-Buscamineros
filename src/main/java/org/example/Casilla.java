@@ -21,6 +21,8 @@ public class Casilla {
         this.mina = true;
     }
 
+    public void quitarMina() { this.mina = false;}
+
     public boolean estaRevelada() {
         return revelada;
     }

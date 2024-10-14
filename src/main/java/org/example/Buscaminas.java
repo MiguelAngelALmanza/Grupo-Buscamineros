@@ -1,7 +1,7 @@
 package org.example;
 
 import java.util.Scanner;
-
+import java.util.Random;
 public class Buscaminas {
 
     private int tamanio ;
@@ -18,13 +18,14 @@ public class Buscaminas {
         System.out.println("Dificultad: " + getDificultad());
         System.out.println("Tamanio: " + getTamanio());
         System.out.println("Numero de minas : " + getMinas());
-
+        Random rand = new Random();
         do {
             System.out.println("JUGADAS: " + jugadas);
             tablero.imprimirTablero();
-            if (jugadas == 1) {
-                tablero.generarMinas();
-            }
+            /*if (jugadas == 1 && board[i][j].esMina()) {
+                int fila = rand.nextInt(minas);
+                int columna = rand.nextInt(minas);
+            }*/
             input();
 
         } while (tablero.getEstado() && !tablero.verificarVictoria());
@@ -32,7 +33,7 @@ public class Buscaminas {
         if (!tablero.getEstado()) {
             System.out.println("pisaste una mina.");
         } else if (tablero.verificarVictoria()) {
-            System.out.println("gnaste el juego");
+            System.out.println("ganaste el juego");
         }
     }
 

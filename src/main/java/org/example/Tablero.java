@@ -10,6 +10,7 @@ public class Tablero {
     private int minas;
     private List<int[]> posicionesMinas;
     private boolean estado;
+    private int jugadas;
 
     public Tablero(int tamanio, int minas) {
         this.tamanio = tamanio;
@@ -17,6 +18,7 @@ public class Tablero {
         this.board = new Casilla[tamanio][tamanio];
         this.posicionesMinas = new ArrayList<>();
         this.estado = true;
+        this.jugadas = 0;
         inicializarTablero();
         generarMinas();
     }
@@ -31,7 +33,13 @@ public class Tablero {
 
     public void imprimirTablero() {
         for (int i = 0; i < tamanio; i++) {
+            System.out.print(i + "|");
+        }
+        System.out.println();
+
+        for (int i = 0; i < tamanio; i++) {
             for (int j = 0; j < tamanio; j++) {
+
                 if (board[i][j].estaRevelada()) {
                     if (board[i][j].esMina()) {
                         System.out.print("X ");
@@ -49,8 +57,22 @@ public class Tablero {
     }
 
     public void generarMinas() {
+        int minascolocadas = 0;
+
         Random rand = new Random();
-        for (int i = 0; i < minas; i++) {
+        while (minascolocadas < minas) {
+            int fila = rand.nextInt(tamanio);
+            int columna = rand.nextInt(tamanio);
+            if (!board[fila][columna].esMina()) {
+                board[fila][columna].colocarMina();
+                minascolocadas++;
+            }
+            posicionesMinas.add(new int[]{fila, columna});
+        }
+
+
+
+        /*for (int i = 0; i < minas; i++) {
             int fila, columna;
             do {
                 fila = rand.nextInt(tamanio);
@@ -59,7 +81,7 @@ public class Tablero {
 
             board[fila][columna].colocarMina();
             posicionesMinas.add(new int[]{fila, columna});
-        }
+        }*/
     }
 
     public void revelarCasilla(int fila, int columna) {
@@ -70,6 +92,7 @@ public class Tablero {
         if (casilla.estaRevelada() || casilla.esPosibleMina()) return;
 
         casilla.revelar();
+        primerajugada(fila, columna);
         if (casilla.esMina()) {
             System.out.println("pisaste una mina");
             this.estado = false;
@@ -81,6 +104,7 @@ public class Tablero {
                 revelarCasillasAdyacentes(fila, columna);
             }
         }
+        jugadas++;
     }
 
     public void marcarPosibleMina(int fila, int columna) {
@@ -88,6 +112,7 @@ public class Tablero {
         if (!casilla.estaRevelada()) {
             casilla.marcarPosibleMina(!casilla.esPosibleMina());
         }
+        jugadas++;
     }
 
     public int contarMinasAlrededor(int fila, int columna) {
@@ -99,6 +124,7 @@ public class Tablero {
             if (nuevaFila >= 0 && nuevaFila < tamanio && nuevaColumna >= 0 && nuevaColumna < tamanio) {
                 if (board[nuevaFila][nuevaColumna].esMina()) {
                     minasAlrededor++;
+
                 }
             }
         }
@@ -122,11 +148,29 @@ public class Tablero {
                 }
             }
         }
-        System.out.println("ganaste el juego");
         return true;
+    }
+
+    public void primerajugada(int fila, int columna) {
+        Random rand = new Random();
+
+        if (jugadas == 0 && board[fila][columna].esMina()) {
+
+            int filanueva = rand.nextInt(tamanio);
+            int columnanueva = rand.nextInt(tamanio);
+            if(filanueva != fila && columnanueva != columna) {
+                if (!board[filanueva][columnanueva].esMina()) {
+                    board[filanueva][columnanueva].colocarMina();
+                }
+            }
+            board[fila][columna].quitarMina();
+        }
+
     }
 
     public boolean getEstado() {
         return estado;
     }
+
+
 }
