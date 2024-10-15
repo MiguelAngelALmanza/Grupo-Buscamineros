@@ -30,7 +30,6 @@ public class Tablero {
             }
         }
     }
-
     public void imprimirTablero() {
         System.out.print("   |");
         for (int i = 0; i < tamanio; i++) {
@@ -74,9 +73,7 @@ public class Tablero {
             return;
         }
         Casilla casilla = board[fila][columna];
-
         if (casilla.estaRevelada() || casilla.esPosibleMina()) return;
-
         casilla.revelar();
         primerajugada(fila, columna);
         if (casilla.esMina()) {
@@ -140,9 +137,7 @@ public class Tablero {
 
     private void primerajugada(int fila, int columna) {
         Random rand = new Random();
-
         if (jugadas == 0 && board[fila][columna].esMina()) {
-
             int filanueva = rand.nextInt(tamanio);
             int columnanueva = rand.nextInt(tamanio);
             if(filanueva != fila && columnanueva != columna) {
@@ -152,7 +147,6 @@ public class Tablero {
             }
             board[fila][columna].quitarMina();
         }
-
     }
 
     public boolean getEstado() {
