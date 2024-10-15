@@ -10,5 +10,4 @@ public class Main {
         Buscaminas buscaminas = new Buscaminas();
         buscaminas.run(args);
     }
-
 }

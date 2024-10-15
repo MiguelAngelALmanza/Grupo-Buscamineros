@@ -30,6 +30,7 @@ public class Tablero {
             }
         }
     }
+
     public void imprimirTablero() {
         System.out.print("   |");
         for (int i = 0; i < tamanio; i++) {
@@ -69,17 +70,15 @@ public class Tablero {
     }
 
     public void revelarCasilla(int fila, int columna) {
-        if (fila < 0 || fila >= tamanio || columna < 0 || columna >= tamanio) {
+        if (fila < 0 || fila >= tamanio || columna < 0 || columna >= tamanio || board[fila][columna].estaRevelada() || board[fila][columna].esPosibleMina()) {
             return;
         }
         Casilla casilla = board[fila][columna];
-        if (casilla.estaRevelada() || casilla.esPosibleMina()) return;
         casilla.revelar();
         primerajugada(fila, columna);
+
         if (casilla.esMina()) {
-            System.out.println("PISASTE UNA MINA");
-            imprimirTablero();
-            this.estado = false;
+            manejarMinaEncontrada();
         } else {
             int minasAlrededor = contarMinasAlrededor(fila, columna);
             casilla.setMinasAlrededor(minasAlrededor);
@@ -90,6 +89,13 @@ public class Tablero {
         }
         jugadas++;
     }
+
+    private void manejarMinaEncontrada() {
+        System.out.println("PISASTE UNA MINA");
+        imprimirTablero();
+        this.estado = false;
+    }
+
 
     public void marcarPosibleMina(int fila, int columna) {
         Casilla casilla = board[fila][columna];
@@ -152,6 +158,4 @@ public class Tablero {
     public boolean getEstado() {
         return estado;
     }
-
-
 }
