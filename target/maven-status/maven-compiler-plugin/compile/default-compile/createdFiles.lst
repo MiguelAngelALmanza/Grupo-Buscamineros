@@ -1,0 +1,8 @@
+com\umss\buscaminas\presentacion\MenuController.class
+com\umss\buscaminas\presentacion\BuscaminasController.class
+com\umss\buscaminas\MainApplication.class
+com\umss\buscaminas\application\Dificultad.class
+com\umss\buscaminas\presentacion\Configuracion.class
+module-info.class
+com\umss\buscaminas\application\Casilla.class
+com\umss\buscaminas\application\Tablero.class
