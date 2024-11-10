@@ -3,16 +3,20 @@ package com.umss.buscaminas.presentacion;
 import com.umss.buscaminas.MainApplication;
 import com.umss.buscaminas.application.Casilla;
 import com.umss.buscaminas.application.Tablero;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -22,15 +26,21 @@ public class BuscaminasController {
     private int minas;
     private String dificultad;
     private Image flagImage;
+    private int tiempo;
+    private Timeline timeline;
 
     @FXML
     private GridPane gridPane;
+
+    @FXML
+    private Label tiempoLabel;
 
     public BuscaminasController(){
         dificultad = Configuracion.getDificultad().toLowerCase();
         System.out.println(dificultad);
         System.out.println(getClass().getResource("/com/umss/buscaminas/menu-view.fxml"));
         flagImage = new Image(getClass().getResourceAsStream("/image/bandera3.png"));
+        tiempo = 0;
     }
 
     @FXML
@@ -38,6 +48,22 @@ public class BuscaminasController {
         setParametros();
         tablero = new Tablero(this.tamanio, this.minas);
         crearTablero();
+        iniciarContador();
+    }
+
+    private void iniciarContador() {
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+            tiempo++;
+            tiempoLabel.setText("Tiempo: " + tiempo);
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+    }
+
+    private void detenerContador() {
+        if (timeline != null) {
+            timeline.stop();
+        }
     }
 
     private void crearTablero() {
@@ -45,7 +71,7 @@ public class BuscaminasController {
         for (int i = 0; i < tamanio; i++) {
             for (int j = 0; j < tamanio; j++) {
                 Button button = new Button();
-                button.setPrefSize(35, 35);
+                button.setPrefSize(36, 36);
                 final int fila = i;
                 final int columna = j;
                 button.setOnMouseClicked(e -> manejarClick(e, fila, columna));
@@ -66,8 +92,10 @@ public class BuscaminasController {
         tablero.revelarCasilla(fila, columna);
         actualizarTablero();
         if (!tablero.getEstado()) {
+            detenerContador();
             mostrarAlerta("¡Perdiste!", "PISASTE UNA MINA", false);
         } else if (tablero.verificarVictoria()) {
+            detenerContador();
             mostrarAlerta("¡Ganaste!", "¡Felicidades, encontraste todas las minas!", true);
         }
     }
@@ -104,11 +132,15 @@ public class BuscaminasController {
 
     private void reiniciarJuego() {
         tablero = new Tablero(tamanio, minas);
+        tiempo = 0;
+        tiempoLabel.setText("Tiempo: 0");
         crearTablero();
+        iniciarContador();
     }
 
     @FXML
     void salirMenu(ActionEvent event) throws IOException {
+        detenerContador();
         MainApplication.changeScene("/com/umss/buscaminas/menu-view.fxml");
     }
 
@@ -127,6 +159,7 @@ public class BuscaminasController {
                 reiniciarJuego();
             } else if (opcion == botonMenu) {
                 try {
+                    detenerContador();
                     MainApplication.changeScene("/com/umss/buscaminas/menu-view.fxml");
                 } catch (IOException e) {
                     e.printStackTrace();
