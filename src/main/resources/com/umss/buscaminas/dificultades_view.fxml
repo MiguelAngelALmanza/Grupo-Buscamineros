@@ -4,7 +4,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.umss.buscaminas.presentacion.DificultadesController">
+<Pane id = "menuPane" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.umss.buscaminas.presentacion.DificultadesController"
+      stylesheets="@../../../styles/Fondo_Menu.css">
    <children>
       <Button layoutX="225.0" layoutY="77.0" mnemonicParsing="false" onAction="#dfacil" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../styles/Buttom1.css" text="FACIL" textOverrun="LEADING_WORD_ELLIPSIS">
          <font>

@@ -7,25 +7,32 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.umss.buscaminas.presentacion.MenuController">
+<Pane id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.umss.buscaminas.presentacion.MenuController"
+      stylesheets="@../../../styles/Fondo_Menu.css">
+
    <children>
-      <Button layoutX="223.0" layoutY="308.0" mnemonicParsing="false" onAction="#iniciarBuscaminas" stylesheets="@../../../styles/Buttom1.css" text="Iniciar" />
-      <ImageView fitHeight="95.0" fitWidth="138.0" layoutX="490.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <Button id="botonIniciar" layoutX="223.0" layoutY="308.0" mnemonicParsing="false" onAction="#iniciarBuscaminas" stylesheets="@../../../styles/Buttom1.css" text="Iniciar" />
+      <ImageView fitHeight="95.0" fitWidth="124.0" layoutX="510.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../image/Umss-logo.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="95.0" fitWidth="95.0" layoutX="14.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="95.0" fitWidth="95.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../image/logo-fcyt.png" />
          </image>
       </ImageView>
-      <Label layoutX="182.0" layoutY="57.0" prefHeight="58.0" prefWidth="212.0" text="Buscaminas">
+      <Label  id="tituloBuscaminas" layoutX="182.0" layoutY="57.0" prefHeight="58.0" prefWidth="212.0" text="Buscaminas">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <ImageView fitHeight="133.0" fitWidth="259.0" layoutX="159.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="133.0" fitWidth="259.0" layoutX="165.0" layoutY="135.0" pickOnBounds="true"
+                 preserveRatio="true" id="menuPane">
          <image>
             <Image url="@../../../image/Buscaminas-logo.png" />
          </image>

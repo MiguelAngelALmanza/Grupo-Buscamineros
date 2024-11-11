@@ -1,3 +1,48 @@
 .root {
     -fx-background-color: #ffffff;
+    -fx-padding: 6px;
 }
+h1 {
+    -fx-font-weight: 400;
+}
+
+#tituloBuscaminas {
+    -fx-alignment: center;
+    -fx-text-fill: #000000;
+    -fx-font-size: 34px;
+    -fx-font-family: "JetBrains Mono ExtraBold";
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #8c8c8c, 5, 0.5, 2, 2);
+
+}
+
+#botonIniciar{
+    -fx-alignment: center;
+    -fx-text-fill: #000000;
+    -fx-font-size: 15px;
+    -fx-font-family: "JetBrains Mono ExtraBold";
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #c2c2c2, 5, 0.5, 2, 2);
+
+    -fx-pref-width: 145px;
+    -fx-pref-height: 50px;
+}
+
+#botonSalir{
+    -fx-alignment: center;
+    -fx-text-fill: #000000;
+    -fx-font-size: 14px;
+    -fx-font-family: "JetBrains Mono";
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #2c2c2c, 5, 0.5, 2, 2);
+
+    -fx-pref-width: 90px;
+    -fx-pref-height: 15px;
+}
+
+#matriz {
+    -fx-font-family: "JetBrains Mono";
+    -fx-font-weight: bold;
+}
+
+

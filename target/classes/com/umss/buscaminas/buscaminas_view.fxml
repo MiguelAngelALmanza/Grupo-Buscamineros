@@ -7,7 +7,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.umss.buscaminas.presentacion.BuscaminasController">
+<BorderPane id="menuPane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.umss.buscaminas.presentacion.BuscaminasController"
+            stylesheets="@../../../styles/Fondo_Menu.css">
     <top>
         <VBox BorderPane.alignment="CENTER">
             <Label fx:id="tiempoLabel" text="Tiempo: 0" />
@@ -16,13 +18,16 @@
         </VBox>
     </top>
     <center>
-        <GridPane fx:id="gridPane" alignment="TOP_CENTER" maxHeight="-1.0" maxWidth="-1.0" minHeight="300.0" minWidth="300.0" BorderPane.alignment="CENTER">
+        <GridPane id="matriz" fx:id="gridPane"
+                  alignment="TOP_CENTER" maxHeight="-1.0" maxWidth="-1.0" minHeight="300.0"
+                  minWidth="300.0" BorderPane.alignment="CENTER"
+                  stylesheets="@../../../styles/Fondo_Menu.css">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
         </GridPane>
     </center>
     <bottom>
-        <Button onAction="#salirMenu" text="Salir" BorderPane.alignment="CENTER" />
+        <Button onAction="#salirMenu" id="botonSalir" text="Salir" BorderPane.alignment="CENTER" />
     </bottom>
 </BorderPane>

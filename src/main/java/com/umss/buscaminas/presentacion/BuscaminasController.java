@@ -27,6 +27,7 @@ public class BuscaminasController {
     private int minas;
     private String dificultad;
     private Image flagImage;
+    private Image mineImage;
     private int tiempo;
     private int jugadas;
     private Timeline timeline;
@@ -48,6 +49,7 @@ public class BuscaminasController {
         System.out.println(dificultad);
         System.out.println(getClass().getResource("/com/umss/buscaminas/menu-view.fxml"));
         flagImage = new Image(getClass().getResourceAsStream("/image/bandera3.png"));
+        mineImage = new Image(getClass().getResourceAsStream("/image/mina.png"));
         tiempo = 0;
         jugadas = 0;
     }
@@ -93,7 +95,6 @@ public class BuscaminasController {
         }
     }
 
-
     private void manejarClick(MouseEvent e, int fila, int columna) {
         if (e.getButton() == MouseButton.PRIMARY) {
             jugadas++;
@@ -129,7 +130,10 @@ public class BuscaminasController {
                 Casilla casilla = tablero.getCasilla(i, j);
                 if (casilla.estaRevelada()) {
                     if (casilla.esMina()) {
-                        button.setText("X");
+                        ImageView imageView = new ImageView(mineImage);
+                        imageView.setFitWidth(20);
+                        imageView.setFitHeight(20);
+                        button.setGraphic(imageView);
                     } else {
                         button.setText(String.valueOf(casilla.getMinasAlrededor()));
                     }
