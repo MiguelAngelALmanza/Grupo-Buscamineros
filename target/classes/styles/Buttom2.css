@@ -1,0 +1,18 @@
+.button {
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-font-size: inherit;
+    -fx-line-height: 1;
+    -fx-margin: 0.5em;
+    -fx-padding: 1em 2em;
+}
+
+h1 {
+    -fx-font-weight: 400;
+}
+
+code {
+    -fx-text-fill: #e4cb58;
+    -fx-font-size: inherit;
+}

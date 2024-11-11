@@ -21,28 +21,11 @@ public class MenuController {
 
     @FXML
     void iniciarBuscaminas(ActionEvent event) throws IOException {
-        Configuracion.setDificultad(getDificultad());
-        MainApplication.changeScene("/com/umss/buscaminas/buscaminas_view.fxml");
+
+        MainApplication.changeScene("/com/umss/buscaminas/dificultades_view.fxml");
 
     }
 
-    private String getDificultad() {
-        return choiceDificuldad.getValue();
-    }
-
-    @FXML
-    public void initialize(){
-        cargarDificultades();
-    }
-
-    private void cargarDificultades(){
-        dificultades.clear();
-        Arrays.stream(Dificultad.values()).forEach(
-                dificultad -> dificultades.add(dificultad.getName())
-        );
-        choiceDificuldad.getItems().addAll(dificultades);
-        choiceDificuldad.setValue(dificultades.stream().findFirst().orElse(""));
-    }
 
 }
 

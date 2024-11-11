@@ -48,5 +48,7 @@ public class Casilla {
     public void setMinasAlrededor(int minasAlrededor) {
         this.minasAlrededor = minasAlrededor;
     }
+
+
 }
 

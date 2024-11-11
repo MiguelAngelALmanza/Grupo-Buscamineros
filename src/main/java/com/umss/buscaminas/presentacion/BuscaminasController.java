@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class BuscaminasController {
     private String dificultad;
     private Image flagImage;
     private int tiempo;
+    private int jugadas;
     private Timeline timeline;
 
     @FXML
@@ -35,12 +37,19 @@ public class BuscaminasController {
     @FXML
     private Label tiempoLabel;
 
+    @FXML
+    private Label minasRestantesLabel;
+
+    @FXML
+    private Label jugadasLabel;
+
     public BuscaminasController(){
         dificultad = Configuracion.getDificultad().toLowerCase();
         System.out.println(dificultad);
         System.out.println(getClass().getResource("/com/umss/buscaminas/menu-view.fxml"));
         flagImage = new Image(getClass().getResourceAsStream("/image/bandera3.png"));
         tiempo = 0;
+        jugadas = 0;
     }
 
     @FXML
@@ -49,6 +58,7 @@ public class BuscaminasController {
         tablero = new Tablero(this.tamanio, this.minas);
         crearTablero();
         iniciarContador();
+        actualizarLabels();
     }
 
     private void iniciarContador() {
@@ -71,7 +81,10 @@ public class BuscaminasController {
         for (int i = 0; i < tamanio; i++) {
             for (int j = 0; j < tamanio; j++) {
                 Button button = new Button();
-                button.setPrefSize(36, 36);
+                button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+                button.setPrefSize(36, 36); // Configura el tamaño preferido
+                GridPane.setHgrow(button, Priority.ALWAYS);
+                GridPane.setVgrow(button, Priority.ALWAYS);
                 final int fila = i;
                 final int columna = j;
                 button.setOnMouseClicked(e -> manejarClick(e, fila, columna));
@@ -80,12 +93,15 @@ public class BuscaminasController {
         }
     }
 
+
     private void manejarClick(MouseEvent e, int fila, int columna) {
         if (e.getButton() == MouseButton.PRIMARY) {
+            jugadas++;
             revelarCasilla(fila, columna);
         } else if (e.getButton() == MouseButton.SECONDARY) {
             marcarPosibleMina(fila, columna);
         }
+        actualizarLabels();
     }
 
     private void revelarCasilla(int fila, int columna) {
@@ -133,7 +149,9 @@ public class BuscaminasController {
     private void reiniciarJuego() {
         tablero = new Tablero(tamanio, minas);
         tiempo = 0;
+        jugadas = 0;
         tiempoLabel.setText("Tiempo: 0");
+        actualizarLabels();
         crearTablero();
         iniciarContador();
     }
@@ -166,6 +184,23 @@ public class BuscaminasController {
                 }
             }
         });
+    }
+
+    private void actualizarLabels() {
+        minasRestantesLabel.setText("Minas restantes: " + (minas - contarMarcas()));
+        jugadasLabel.setText("Jugadas: " + jugadas);
+    }
+
+    private int contarMarcas() {
+        int count = 0;
+        for (int i = 0; i < tamanio; i++) {
+            for (int j = 0; j < tamanio; j++) {
+                if (tablero.getCasilla(i, j).esPosibleMina()) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
     public void setParametros() {

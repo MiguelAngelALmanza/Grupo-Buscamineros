@@ -5,13 +5,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
 
 <BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.umss.buscaminas.presentacion.BuscaminasController">
     <top>
-        <Label fx:id="tiempoLabel" text="Tiempo: 0" BorderPane.alignment="CENTER" />
+        <VBox BorderPane.alignment="CENTER">
+            <Label fx:id="tiempoLabel" text="Tiempo: 0" />
+            <Label fx:id="minasRestantesLabel" text="Minas restantes: 0" />
+            <Label fx:id="jugadasLabel" text="Jugadas: 0" />
+        </VBox>
     </top>
     <center>
-        <GridPane fx:id="gridPane">
+        <GridPane fx:id="gridPane" alignment="TOP_CENTER" maxHeight="-1.0" maxWidth="-1.0" minHeight="300.0" minWidth="300.0" BorderPane.alignment="CENTER">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>

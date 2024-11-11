@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.umss.buscaminas.presentacion.DificultadesController">
+   <children>
+      <Button layoutX="225.0" layoutY="77.0" mnemonicParsing="false" onAction="#dfacil" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../styles/Buttom1.css" text="FACIL" textOverrun="LEADING_WORD_ELLIPSIS">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button layoutX="225.0" layoutY="175.0" mnemonicParsing="false" onAction="#dmedio" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../styles/Buttom1.css" text="MEDIO">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button layoutX="225.0" layoutY="271.0" mnemonicParsing="false" onAction="#ddificil" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../styles/Buttom1.css" text="DIFICIL">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+   </children>
+</Pane>
