@@ -108,6 +108,7 @@ public class BuscaminasController {
     private void revelarCasilla(int fila, int columna) {
         tablero.revelarCasilla(fila, columna);
         actualizarTablero();
+        tablero.getPosicionesMinas();
         if (!tablero.getEstado()) {
             detenerContador();
             mostrarAlerta("¡Perdiste!", "PISASTE UNA MINA", false);

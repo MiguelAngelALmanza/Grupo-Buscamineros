@@ -135,7 +135,11 @@ public class Tablero {
     public boolean verificarVictoria() {
         for (int i = 0; i < tamanio; i++) {
             for (int j = 0; j < tamanio; j++) {
-                if (!board[i][j].esMina() && !board[i][j].estaRevelada()) {
+                Casilla casilla = board[i][j];
+                if (!casilla.esMina() && !casilla.estaRevelada()) {
+                    return false;
+                }
+                if (casilla.esMina() && !casilla.esPosibleMina()) {
                     return false;
                 }
             }
@@ -162,5 +166,14 @@ public class Tablero {
 
     public boolean getEstado() {
         return estado;
+    }
+
+    public void getPosicionesMinas(){
+        for (int[] posicion : posicionesMinas) {
+            for (int coordenada : posicion) {
+                System.out.print(coordenada + " ");
+            }
+            System.out.println();
+        }
     }
 }
