@@ -84,7 +84,7 @@ public class BuscaminasController {
             for (int j = 0; j < tamanio; j++) {
                 Button button = new Button();
                 button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-                button.setPrefSize(36, 36); // Configura el tamaño preferido
+                button.setPrefSize(36, 36);
                 GridPane.setHgrow(button, Priority.ALWAYS);
                 GridPane.setVgrow(button, Priority.ALWAYS);
                 final int fila = i;
@@ -99,9 +99,10 @@ public class BuscaminasController {
         if (e.getButton() == MouseButton.PRIMARY) {
             jugadas++;
             revelarCasilla(fila, columna);
-            //verificarEstadoJuego();
+            verificarEstadoJuego();
         } else if (e.getButton() == MouseButton.SECONDARY) {
             marcarPosibleMina(fila, columna);
+            verificarEstadoJuego();
         }
         actualizarLabels();
     }
@@ -118,7 +119,12 @@ public class BuscaminasController {
 
     private void marcarPosibleMina(int fila, int columna) {
         Casilla casilla = tablero.getCasilla(fila, columna);
-        casilla.marcarPosibleMina(!casilla.esPosibleMina());
+        if (casilla.esPosibleMina()) {
+            casilla.marcarPosibleMina(false);
+        }
+        else if (contarMarcas() < minas) {
+            casilla.marcarPosibleMina(true);
+        }
         actualizarTablero();
     }
 
@@ -145,7 +151,6 @@ public class BuscaminasController {
                 } else {
                     button.setGraphic(null);
                 }
-                verificarEstadoJuego();
             }
         }
     }

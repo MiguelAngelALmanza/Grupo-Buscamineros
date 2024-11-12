@@ -33,32 +33,6 @@ public class Tablero {
         }
     }
 
-    public void imprimirTablero() {
-        System.out.print("   |");
-        for (int i = 0; i < tamanio; i++) {
-            if(i<10){System.out.print(i + " |");}else{System.out.print(i + "|");}
-        }
-        System.out.println();
-
-        for (int i = 0; i < tamanio; i++) {
-            if(i<10){System.out.print("|"+i+"| ");}else{System.out.print("|"+i+"|");}
-            for (int j = 0; j < tamanio; j++) {
-                if (board[i][j].estaRevelada()) {
-                    if (board[i][j].esMina()) {
-                        System.out.print("X  ");
-                    } else {
-                        System.out.print(board[i][j].getMinasAlrededor() + "  ");
-                    }
-                } else if (board[i][j].esPosibleMina()) {
-                    System.out.print("P  ");
-                } else {
-                    System.out.print("-  ");
-                }
-            }
-            System.out.println();
-        }
-    }
-
     public void generarMinas() {
         Random rand = new Random();
         while (posicionesMinas.size() < minas) {
