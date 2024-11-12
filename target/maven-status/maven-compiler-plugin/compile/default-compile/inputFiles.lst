@@ -1,9 +1,9 @@
-D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\presentacion\MenuController.java
+D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\Modelo\Tablero.java
+D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\Controlador\BuscaminasController.java
+D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\Controlador\DificultadesController.java
 D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\MainApplication.java
-D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\application\Casilla.java
-D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\presentacion\Configuracion.java
-D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\application\Tablero.java
-D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\presentacion\BuscaminasController.java
-D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\application\Dificultad.java
+D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\Controlador\MenuController.java
+D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\Controlador\ConfiguracionController.java
+D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\Modelo\Casilla.java
+D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\Modelo\Dificultad.java
 D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\module-info.java
-D:\Taller De Programacion\Grupo-Buscamineros\src\main\java\com\umss\buscaminas\presentacion\DificultadesController.java

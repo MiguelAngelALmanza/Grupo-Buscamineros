@@ -1,8 +1,8 @@
-package com.umss.buscaminas.presentacion;
+package com.umss.buscaminas.Controlador;
 
 import com.umss.buscaminas.MainApplication;
-import com.umss.buscaminas.application.Casilla;
-import com.umss.buscaminas.application.Tablero;
+import com.umss.buscaminas.Modelo.Casilla;
+import com.umss.buscaminas.Modelo.Tablero;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -45,7 +45,7 @@ public class BuscaminasController {
     private Label jugadasLabel;
 
     public BuscaminasController(){
-        dificultad = Configuracion.getDificultad().toLowerCase();
+        dificultad = ConfiguracionController.getDificultad().toLowerCase();
         System.out.println(dificultad);
         System.out.println(getClass().getResource("/com/umss/buscaminas/menu-view.fxml"));
         flagImage = new Image(getClass().getResourceAsStream("/image/bandera3.png"));
