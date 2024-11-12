@@ -9,4 +9,5 @@ module com.umss.buscaminas {
     exports com.umss.buscaminas;
     opens com.umss.buscaminas.application to javafx.fxml;
 
+    exports com.umss.buscaminas.application;
 }

@@ -99,6 +99,7 @@ public class BuscaminasController {
         if (e.getButton() == MouseButton.PRIMARY) {
             jugadas++;
             revelarCasilla(fila, columna);
+            //verificarEstadoJuego();
         } else if (e.getButton() == MouseButton.SECONDARY) {
             marcarPosibleMina(fila, columna);
         }
@@ -112,9 +113,6 @@ public class BuscaminasController {
         if (!tablero.getEstado()) {
             detenerContador();
             mostrarAlerta("¡Perdiste!", "PISASTE UNA MINA", false);
-        } else if (tablero.verificarVictoria()) {
-            detenerContador();
-            mostrarAlerta("¡Ganaste!", "¡Felicidades, encontraste todas las minas!", true);
         }
     }
 
@@ -147,6 +145,7 @@ public class BuscaminasController {
                 } else {
                     button.setGraphic(null);
                 }
+                verificarEstadoJuego();
             }
         }
     }
@@ -221,6 +220,13 @@ public class BuscaminasController {
         } else {
             this.tamanio = 0;
             this.minas = 0;
+        }
+    }
+
+    private void verificarEstadoJuego() {
+        if (tablero.verificarCasillasReveladas() || tablero.verificarMinasMarcadas()) {
+            detenerContador();
+            mostrarAlerta("¡Ganaste!", "¡Felicidades, encontraste todas las minas!", true);
         }
     }
 }

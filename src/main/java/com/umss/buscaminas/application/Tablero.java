@@ -93,8 +93,6 @@ public class Tablero {
     }
 
     private void manejarMinaEncontrada() {
-        System.out.println("PISASTE UNA MINA");
-        imprimirTablero();
         this.estado = false;
     }
 
@@ -107,7 +105,8 @@ public class Tablero {
         jugadas++;
     }
 
-    private int contarMinasAlrededor(int fila, int columna) {
+
+    public int contarMinasAlrededor(int fila, int columna) {
         int minasAlrededor = 0;
         int[][] direcciones = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
         for (int[] dir : direcciones) {
@@ -132,13 +131,22 @@ public class Tablero {
         }
     }
 
-    public boolean verificarVictoria() {
+    public boolean verificarCasillasReveladas() {
         for (int i = 0; i < tamanio; i++) {
             for (int j = 0; j < tamanio; j++) {
                 Casilla casilla = board[i][j];
                 if (!casilla.esMina() && !casilla.estaRevelada()) {
                     return false;
                 }
+            }
+        }
+        return true;
+    }
+
+    public boolean verificarMinasMarcadas() {
+        for (int i = 0; i < tamanio; i++) {
+            for (int j = 0; j < tamanio; j++) {
+                Casilla casilla = board[i][j];
                 if (casilla.esMina() && !casilla.esPosibleMina()) {
                     return false;
                 }
@@ -175,5 +183,9 @@ public class Tablero {
             }
             System.out.println();
         }
+    }
+
+    public List getposicionesMinas(){
+        return posicionesMinas;
     }
 }
