@@ -1,4 +1,4 @@
-import com.umss.buscaminas.application.Tablero;
+import com.umss.buscaminas.Modelo.Tablero;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

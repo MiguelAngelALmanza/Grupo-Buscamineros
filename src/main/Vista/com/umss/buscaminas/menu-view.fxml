@@ -11,7 +11,7 @@
       minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
       xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.umss.buscaminas.presentacion.MenuController"
+      fx:controller="com.umss.buscaminas.Controlador.MenuController"
       stylesheets="@../../../styles/Fondo_Menu.css">
 
    <children>

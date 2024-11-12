@@ -1,4 +1,4 @@
-package com.umss.buscaminas.presentacion;
+package com.umss.buscaminas.Controlador;
 
 import com.umss.buscaminas.MainApplication;
 import javafx.event.ActionEvent;
@@ -28,7 +28,7 @@ public class DificultadesController {
     }
 
     private void manejarSeleccionDificultad() throws IOException {
-        Configuracion.setDificultad(dificultadSeleccionada);
+        ConfiguracionController.setDificultad(dificultadSeleccionada);
         MainApplication.changeScene("/com/umss/buscaminas/buscaminas_view.fxml");
     }
 }

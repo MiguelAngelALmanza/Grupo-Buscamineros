@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane id="menuPane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.umss.buscaminas.presentacion.BuscaminasController"
+            fx:controller="com.umss.buscaminas.Controlador.BuscaminasController"
             stylesheets="@../../../styles/Fondo_Menu.css">
     <top>
         <VBox BorderPane.alignment="CENTER">
