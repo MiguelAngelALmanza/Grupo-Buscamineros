@@ -5,9 +5,9 @@ module com.umss.buscaminas {
     requires org.controlsfx.controls;
     requires static lombok;
 
-    opens com.umss.buscaminas.presentacion to javafx.fxml;
+    opens com.umss.buscaminas.Controlador to javafx.fxml;
     exports com.umss.buscaminas;
-    opens com.umss.buscaminas.application to javafx.fxml;
+    opens com.umss.buscaminas.Modelo to javafx.fxml;
 
-    exports com.umss.buscaminas.application;
+    exports com.umss.buscaminas.Modelo;
 }

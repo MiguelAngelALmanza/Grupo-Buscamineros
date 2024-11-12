@@ -1,4 +1,4 @@
-package com.umss.buscaminas.application;
+package com.umss.buscaminas.Modelo;
 
 public class Casilla {
     private boolean mina;

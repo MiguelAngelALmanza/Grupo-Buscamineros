@@ -1,6 +1,5 @@
-package com.umss.buscaminas.presentacion;
+package com.umss.buscaminas.Controlador;
 
-import com.umss.buscaminas.application.Dificultad;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,7 +8,6 @@ import javafx.scene.control.ChoiceBox;
 import com.umss.buscaminas.MainApplication;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 public class MenuController {
 

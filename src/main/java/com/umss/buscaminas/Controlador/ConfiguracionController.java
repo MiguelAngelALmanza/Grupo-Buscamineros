@@ -1,19 +1,19 @@
-package com.umss.buscaminas.presentacion;
+package com.umss.buscaminas.Controlador;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
-public class Configuracion {
+public class ConfiguracionController {
 
     @Getter
     private static String dificultad;
 
     public static void setDificultad(String dificultad) {
-        Configuracion.dificultad = dificultad;
+        ConfiguracionController.dificultad = dificultad;
     }
 
     public static String getDificultad() {
-        return Configuracion.dificultad;
+        return ConfiguracionController.dificultad;
     }
 }
