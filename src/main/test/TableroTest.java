@@ -1,4 +1,5 @@
 import com.umss.buscaminas.Modelo.Tablero;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +12,11 @@ class TableroTest {
     @BeforeEach
     void setUp() {
         tablero = new Tablero(5, 3);
+    }
+
+    @AfterEach
+    void tearDown() {
+        tablero = null;
     }
 
     @Test
@@ -27,7 +33,6 @@ class TableroTest {
     void testGenerarMinas() {
         tablero.generarMinas();
         int minasGeneradas = tablero.getposicionesMinas().size();
-
         assertEquals(3, minasGeneradas, "deberían generarse exactamente 3 minas");
     }
 
@@ -90,6 +95,7 @@ class TableroTest {
 
     @Test
     void testContarMinasAlrededor2() {
+        tablero = new Tablero(5, 0);
         tablero.getCasilla(0, 1).colocarMina();
         tablero.getCasilla(0, 3).colocarMina();
         int minasAlrededor = tablero.contarMinasAlrededor(0, 2);
@@ -98,6 +104,7 @@ class TableroTest {
 
     @Test
     void testContarMinasAlrededor3() {
+        tablero = new Tablero(5, 0);
         tablero.getCasilla(1, 0).colocarMina();
         tablero.getCasilla(3, 0).colocarMina();
         int minasAlrededor = tablero.contarMinasAlrededor(2, 0);
@@ -108,6 +115,7 @@ class TableroTest {
 
     @Test
     void testRevelarCasillasAdyacentes() {
+        tablero = new Tablero(5, 0);
         tablero.revelarCasilla(2, 2);
         for (int i = 1; i <= 3; i++) {
             for (int j = 1; j <= 3; j++) {
